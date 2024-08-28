@@ -22,14 +22,63 @@ public class Cat {
     public int weight;
     public int strength;
 
+
     public Cat() {
+        // NOP
     }
 
+    public Cat(int age, int weight, int strength) {
+        this.age = age;
+        this.weight = weight;
+        this.strength = strength;
+    }
+
+
     public boolean fight(Cat anotherCat) {
-        //напишите тут ваш код
+        int thisCatFactor = getCatFactor(age, weight, strength);
+        int anotherCatFactor = getCatFactor(anotherCat.age, anotherCat.weight, anotherCat.strength);
+        return thisCatFactor > anotherCatFactor;
     }
 
     public static void main(String[] args) {
+        Cat cat1 = new Cat();
+        Cat cat2 = new Cat(1, 3, 5);
+        Cat cat3 = new Cat(2, 4, 6);
+        Cat cat4 = new Cat(3, 5, 17);
+        Cat cat5 = new Cat(7, 8, 11);
+    }
 
+    private static int getCatFactor (int age, int weight, int strength) {
+        return getAgeFactor(age) * getWeightFactor(weight) * strength;
+    }
+
+    private static int getAgeFactor (int age) {
+        int result;
+        if (age < 1 || age > 30) {
+            return 0; // кот к состязаниям не допущен ко критерию ВОЗРАСТ
+        }
+        if (age <= 2 || age >= 17) {
+            result = 1;
+        } else if (age <= 5 || age >= 12) {
+            result = 2;
+        } else {
+            result = 3;
+        }
+        return result;
+    }
+
+    private static int getWeightFactor (int weight) {
+        int result;
+        if (weight < 1 || weight > 30) {
+            return 0; // кот к состязаниям не допущен ко критерию ВЕС
+        }
+        if (weight <= 2 || weight >= 17) {
+            result = 1;
+        } else if (weight <= 5 || weight >= 12) {
+            result = 2;
+        } else {
+            result = 3;
+        }
+        return result;
     }
 }
