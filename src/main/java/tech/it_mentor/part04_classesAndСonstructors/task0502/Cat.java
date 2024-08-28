@@ -40,14 +40,6 @@ public class Cat {
         return thisCatFactor > anotherCatFactor;
     }
 
-    public static void main(String[] args) {
-        Cat cat1 = new Cat();
-        Cat cat2 = new Cat(1, 3, 5);
-        Cat cat3 = new Cat(2, 4, 6);
-        Cat cat4 = new Cat(3, 5, 17);
-        Cat cat5 = new Cat(7, 8, 11);
-    }
-
     private static int getCatFactor (int age, int weight, int strength) {
         return getAgeFactor(age) * getWeightFactor(weight) * strength;
     }
@@ -80,5 +72,30 @@ public class Cat {
             result = 3;
         }
         return result;
+    }
+
+
+    public static void main(String[] args) {
+        ClassLoader.getSystemClassLoader().setDefaultAssertionStatus(true);
+        Cat cat1 = new Cat();
+        Cat cat2 = new Cat(1, 3, 5);
+        Cat cat3 = new Cat(2, 4, 6);
+
+        testing(cat1, "Кот1", cat2, "Кот2");
+        testing(cat2, "Кот2", cat1, "Кот1");
+
+        testing(cat2, "Кот2", cat3, "Кот3");
+        testing(cat3, "Кот3", cat2, "Кот2");
+
+        testing(cat1, "Кот1", cat3, "Кот3");
+        testing(cat3, "Кот3", cat1, "Кот1");
+    }
+
+    private static void testing(Cat cat1, String nameCat1, Cat cat2, String nameCat2) {
+        if (cat1.fight(cat2)) {
+            System.out.println(nameCat1 + " победил, " + nameCat2 + " проиграл.");
+        } else {
+            System.out.println(nameCat2 + " победил, " + nameCat1 + " проиграл.");
+        }
     }
 }
