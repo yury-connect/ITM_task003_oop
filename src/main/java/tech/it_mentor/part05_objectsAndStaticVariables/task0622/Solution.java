@@ -1,4 +1,4 @@
-package tech.it_mentor.part05_objectsAndStaticVariables.task0622(alg);
+package tech.it_mentor.part05_objectsAndStaticVariables.task0622;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

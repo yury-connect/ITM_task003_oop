@@ -16,6 +16,7 @@ Requirements:
 public class Util {
     public static double getDistance(int x1, int y1, int x2, int y2) {
         //напишите тут ваш код
+        return 0; // редактировать данную строчку / изменить :)
     }
 
     public static void main(String[] args) {
