@@ -1,9 +1,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.example</groupId>
+
+  <groupId>tech.it-mentor</groupId>
   <artifactId>ITM_task003_oop</artifactId>
   <version>1.0-SNAPSHOT</version>
+
   <name>Archetype - ITM_task003_oop</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/yury-connect/ITM_task003_oop</url>
+
+
+  <!--  Разработчики (<developers>):-->
+  <developers>
+    <developer>
+      <id>LapitskiYury</id>
+      <name>Lapitski Yury</name>
+      <email>yury.connect@gmail.com</email>
+      <roles>
+        <role>developer</role>
+        <role>maintainer</role>
+      </roles>
+      <timezone>+2</timezone>
+      <properties>
+        <phone>+375291056708</phone>
+        <viber>+375291056708</viber>
+        <whatsapp>+375291056708</whatsapp>
+      </properties>
+    </developer>
+  </developers>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+
 </project>
