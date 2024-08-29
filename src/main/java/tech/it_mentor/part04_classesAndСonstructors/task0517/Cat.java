@@ -28,9 +28,64 @@ Requirements:
 10. У класса должен быть конструктор, принимающий в качестве параметров вес, цвет, адрес и инициализирующий все переменные класса, кроме имени.*/
 
 public class Cat {
-    //напишите тут ваш код
+    String name;
+    int age;
+    int weight;
+    String address;
+    String color;
+
+
+    public Cat(String name) { // №6
+        this.name = name;
+        this.age = 6;
+        this.weight = 16;
+        this.color = "рыжий полосатый";
+    }
+
+    public Cat(String name, int weight, int age) { // №7
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.color = "черный полностью";
+    }
+
+    public Cat(String name, int age) { // №8
+        this.name = name;
+        this.age = age;
+        this.weight = 8;
+        this.color = "белый полностью";
+    }
+
+    public Cat(int weight, String color) { // №9
+        this.age = 9;
+        this.weight = weight;
+        this.color = color;
+    }
+
+    public Cat(int weight, String color, String address) {
+        this.age = 10;
+        this.weight = weight;
+        this.color = color;
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", address='" + address + '\'' +
+                ", color='" + color + '\'' +
+                '}';
+    }
+
 
     public static void main(String[] args) {
-
+        System.out.println(new Cat("Мурзик"));
+        System.out.println(new Cat("Тузик", 7, 17));
+        System.out.println(new Cat("Барсик", 18));
+        System.out.println(new Cat(19, "трех цветный"));
+        System.out.println(new Cat(11, "дымчатый", "Архангельск, Суворова, 21"));
     }
 }
