@@ -17,9 +17,54 @@ Requirements:
 7. У класса должен быть геттер для переменной age.*/
 
 public class Dog {
-    //напишите тут ваш код
+    String name;
+    int age;
+
+
+    public Dog(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public Dog() {
+        // NOP
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
 
     public static void main(String[] args) {
+        Dog dog1 = new Dog();
+        dog1.setName("Бобик");
+        dog1.setAge(10);
+        System.out.println(dog1);
+
+        Dog dog2 = new Dog("Тузик", 3);
+        System.out.println(dog2);
 
     }
 }
