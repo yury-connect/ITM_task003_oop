@@ -20,15 +20,18 @@ Requirements:
 public class Circle {
     public Color color;
 
+
+    public Circle() {
+        this.color = new Color();
+    }
+
+
     public static void main(String[] args) {
         Circle circle = new Circle();
         circle.color.setDescription("Red");
         System.out.println(circle.color.getDescription());
     }
 
-    public void Circle() {
-        color = new Color();
-    }
 
     public class Color {
         String description;

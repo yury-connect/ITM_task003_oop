@@ -66,5 +66,9 @@ public class Dog {
         Dog dog2 = new Dog("Тузик", 3);
         System.out.println(dog2);
 
+        Dog dog = new Dog();
+        dog.setName("Rex");
+        dog.setAge(5);
+        System.out.println(dog.getName() + " " + dog.getAge());
     }
 }
