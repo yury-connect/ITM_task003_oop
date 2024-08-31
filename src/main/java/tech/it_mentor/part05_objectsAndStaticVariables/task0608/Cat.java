@@ -22,16 +22,16 @@ public class Cat {
     }
 
     public static int getCatCount() {
-        //напишите тут ваш код
-        return 0; // переписать данную строчку / изменить :)
+        return Cat.catCount;
     }
 
     public static void setCatCount(int catCount) {
-        //напишите тут ваш код
-
+        Cat.catCount = catCount;
     }
 
     public static void main(String[] args) {
-
+        System.out.println(Cat.getCatCount());
+        Cat.setCatCount(123);
+        System.out.println(Cat.getCatCount());
     }
 }
