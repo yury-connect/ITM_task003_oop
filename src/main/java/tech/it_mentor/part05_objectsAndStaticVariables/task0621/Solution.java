@@ -48,36 +48,114 @@ public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        String motherName = reader.readLine();
-        Cat catMother = new Cat(motherName);
+        System.out.println("Введите имя ДЕДУШКИ по ПАПЕ");
+        String grandfatherDadName = reader.readLine();   // "дедушка Вася"
+//        String grandfatherDadName = "дедушка Вася";   //
+        Cat grandfatherDad = grandfatherDadName == null || grandfatherDadName.length() == 0 ? null : new Cat(grandfatherDadName, null, null);
 
-        String daughterName = reader.readLine();
-        Cat catDaughter = new Cat(daughterName, catMother);
+        System.out.println("Введите имя БАБУШКУ по ПАПЕ");
+        String grandmotherDadName = reader.readLine();   // ""
+//        String grandmotherDadName = "";   //
+        Cat grandmotherDad = grandmotherDadName == null || grandmotherDadName.length() == 0 ? null : new Cat(grandmotherDadName, null, null);
 
-        System.out.println(catMother);
-        System.out.println(catDaughter);
+        System.out.println("Введите имя ДЕДУШКИ по МАМЕ");
+        String grandfatherMomName = reader.readLine();   // ""
+//        String grandfatherMomName = "";   //
+        Cat grandfatherMom = grandfatherMomName == null || grandfatherMomName.length() == 0 ? null : new Cat(grandfatherMomName, null, null);
+
+        System.out.println("Введите имя БАБУШКУ по МАМЕ");
+        String grandmotherMomName = reader.readLine();   // "бабушка Мурка"
+//        String grandmotherMomName = "бабушка Мурка";   //
+        Cat grandmotherMom = grandmotherMomName == null || grandmotherMomName.length() == 0 ? null : new Cat(grandmotherMomName, null, null);
+
+        System.out.println("Введите имя ПАПЫ");
+        String dadName = reader.readLine();   // "папа Котофей"
+//        String dadName = "папа Котофей";
+        Cat dad = dadName == null || dadName.length() == 0 ? null : new Cat(dadName, grandfatherDad, grandmotherDad);
+
+        System.out.println("Введите имя МАМЫ");
+        String momName = reader.readLine();   // "мама Василиса"
+//        String momName = "мама Василиса";   //
+        Cat mom = momName == null || momName.length() == 0 ? null : new Cat(momName, grandfatherMom, grandmotherMom);
+
+        System.out.println("Введите имя СЫНА");
+        String sonName = reader.readLine();   // "сын Мурчик"
+//        String sonName = "сын Мурчик";
+        Cat son = sonName == null || sonName.length() == 0 ? null : new Cat(sonName, dad, mom);
+
+        System.out.println("Введите имя ДОЕРИ");
+        String daughterName = reader.readLine();   // "дочь Пушинка"
+//        String daughterName = "дочь Пушинка";
+        Cat daughter = daughterName == null || daughterName.length()  == 0 ? null : new Cat(daughterName, dad, mom);
+
+
+        StringBuilder result = new StringBuilder();
+        if (grandfatherDad != null) {
+            result.append(grandfatherDad + "\n");   // дедушка  по папе
+        }
+        if (grandmotherDad != null) {
+            result.append(grandmotherDad + "\n");   // бабушка по папе
+        }
+        if (grandfatherMom != null) {
+            result.append(grandfatherMom + "\n");   // дедушка по маме
+        }
+        if (grandmotherMom != null) {
+            result.append(grandmotherMom + "\n");   // бабушка по маме
+        }
+        if (dad != null) {
+            result.append(dad + "\n");   // папа
+        }
+        if (mom != null) {
+            result.append(mom + "\n");   // мама
+        }
+        if (son != null) {
+            result.append(son + "\n");   // сын
+        }
+        if (daughter != null) {
+            result.append(daughter + "\n");   // дочь
+        }
+
+        System.out.println(result);
     }
 
     public static class Cat {
         private String name;
-        private Cat parent;
+        private Cat mother;
+        private Cat father;
+
 
         Cat(String name) {
             this.name = name;
         }
 
-        Cat(String name, Cat parent) {
+        Cat(String name, Cat father, Cat mother) {
             this.name = name;
-            this.parent = parent;
+            this.mother = mother;
+            this.father = father;
         }
+
 
         @Override
         public String toString() {
-            if (parent == null)
-                return "The cat's name is " + name + ", no mother ";
-            else
-                return "The cat's name is " + name + ", mother is " + parent.name;
+            StringBuilder result = new StringBuilder("The cat's name is ");
+            result.append(name);
+            result.append(", ");
+
+            if (mother == null) {
+                result.append("no mother ");
+            } else {
+                result.append("mother is " + mother.name);
+            }
+
+            result.append(", ");
+
+            if (father == null) {
+                result.append("no father");
+            } else {
+                result.append("father is " + father.name);
+            }
+
+            return result.toString();
         }
     }
-
 }
