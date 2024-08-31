@@ -14,9 +14,16 @@ Requirements:
 6. Конструктор класса должен на 1 увеличивать значение переменной catCount.*/
 
 public class Cat {
-    //напишите тут ваш код
+    public static int catCount;
+
+    public Cat() {
+        catCount++;
+    }
 
     public static void main(String[] args) {
-
+        for (int i = 10; i > 0; i--) {
+            new Cat();
+            System.out.println(Cat.catCount);
+        }
     }
 }
