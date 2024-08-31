@@ -15,11 +15,14 @@ Requirements:
 
 public class Util {
     public static double getDistance(int x1, int y1, int x2, int y2) {
-        //напишите тут ваш код
-        return 0; // редактировать данную строчку / изменить :)
+        int x = Math.abs(x1 - x2);
+        int y = Math.abs(y1 - y2);
+        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)); // более простым методом:   Math.sqrt(x * x + y * y)
     }
 
     public static void main(String[] args) {
-
+        System.out.println("Длинна должна получиться = 10.04987562112089");
+        double result = getDistance(1, 20, 2, 30);
+        System.out.println("Результат работы программы = " + result);
     }
 }
