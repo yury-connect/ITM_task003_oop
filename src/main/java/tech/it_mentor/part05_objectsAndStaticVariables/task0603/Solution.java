@@ -14,22 +14,50 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) {
-        // напишите тут ваш код
+        for (int i = 0; i < 50_000; i++) {
+            Cat cat = new Cat(i);
+            Dog dog = new Dog(i);
+        }
+
+        // Явный вызов сборщика мусора
+        System.gc();
+
+        // Ожидание завершения работы GC
+        try {
+            Thread.sleep(1_000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Finish");
     }
 }
 
 class Cat {
+    private int number;
+
+    public Cat(int number) {
+        this.number = number;
+    }
+
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
-        System.out.println("A Cat was destroyed");
+        System.out.println("A Cat № '" + number + "' was destroyed");
     }
 }
 
 class Dog {
+    private int number;
+    private String[] strings = new String[100];
+
+    public Dog(int number) {
+        this.number = number;
+    }
+
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
-        System.out.println("A Dog was destroyed");
+        System.out.println("A \tDog № '" + number + "' was destroyed");
     }
 }
