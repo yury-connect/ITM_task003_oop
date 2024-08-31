@@ -15,9 +15,26 @@ Requirements:
 5. Метод printIdea должен выводить описание идеи на экран.*/
 
 public class Solution {
-    public static void main(String[] args) {
-//        printIdea(new Idea());
+
+    public static class Idea {
+        private String message;
+
+        public Idea(String message) {
+            this.message = message;
+        }
+
+        public String getDescription() {
+            return message;
+        }
     }
 
-    //напишите тут ваш код
+
+    public static void main(String[] args) {
+        printIdea(new Idea("Hello man!"));
+    }
+
+    public static void printIdea(Idea idea) {
+        Solution.Idea resultIdea = new Solution.Idea(idea.getDescription());
+        System.out.println(resultIdea.getDescription());
+    }
 }
