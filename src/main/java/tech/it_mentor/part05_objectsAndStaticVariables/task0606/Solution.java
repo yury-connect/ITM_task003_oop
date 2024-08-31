@@ -29,6 +29,19 @@ public class Solution {
     public static int odd;
 
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Ведите положительное число: ");
+        int n = Integer.parseInt(reader.readLine());
+        while (n >= 1) {
+            int current = n % 10;
+            if (current % 2 == 0) {
+                even++;
+            } else {
+                odd++;
+            }
+            n /=10;
+        }
+        System.out.println("Четных цифр (even) = " + even);
+        System.out.println("Не четных цифр (odd) = " + odd);
     }
 }
